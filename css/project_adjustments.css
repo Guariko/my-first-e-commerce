@@ -1,0 +1,66 @@
+/* TODO: Setting up the project Starts */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    outline: none;
+    border: none;
+    text-transform: none;
+    text-decoration: none;
+    box-shadow: none;
+    list-style-type: none;
+    transition: all .2s linear;   
+    background: none;
+    font-family: 'Lora', serif;
+}
+
+:root {
+    --main-color: #fff;
+    --second-color: #EB2C13;
+    --black: rgb(39, 37, 37);
+    --grey: #444;
+    --paragraph-size: 1.1rem;
+    --orange: #ffa41c;
+    --login-register-background-color: #f5edff;
+    --logo-color: #5b4a90;
+    --purple: #8351cc;
+    --pink: #e16fd1;
+    --white-purple: #bb74ee;
+    --hero-background-color: #e39ca2;
+    --header-height: 8rem;
+}
+
+p {
+    max-width: 50ch;
+    font-size: var(--paragraph-size);
+    color: var(--grey);
+    line-height: 1.5;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* FIXME: Setting up the project ends */
+

@@ -1,0 +1,931 @@
+/* TODO: Setting up the project and variables */
+
+@import url("templates_styles.css");
+
+.main {
+    margin-top: var(--header-height);
+    position: relative;
+}
+
+.main__recommendation {
+    padding: 2rem 0;
+    padding-top: 0;
+    background: var(--main-color);
+}
+
+:root {
+    --recommendation-genre-size: 1.2rem;
+    --recommendation-title-size: 1.5rem;
+    --button-size: 1.5rem;
+    --starts-size: 1.3rem;
+    --price-size: 2rem;
+    --product-not-found-paragraph-size: 3rem;
+    --delete-message-size: 3rem;
+    --choose-delete-size: 2.5rem;
+    --hero-h1-size: 1.5rem;
+    --hero-h1-mark: 2.2rem;
+    --question-size: 1.8rem;
+    --answer-size: 1.3rem;
+    --faqs-introduction-size: 3rem;
+    --faqs-arrows-size: 2rem;
+    --testimonial-h2-size: 2rem;
+    --testimonial-user-size: 4rem;
+    --see-more-h1-size: 2.5rem;
+    --product-content-size: 1.4rem;
+}
+
+/* FIXME: Setting up the project and variables ends */
+
+/* TODO: Recommendations start */
+
+.recommendations {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 30rem));
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+
+.recommendation {
+    background: var(--main-color);
+}
+
+.recommendation {
+    position: relative;
+    padding-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 4px;
+}
+
+.recommendation__new__container,
+.recommendation__button__container {
+    position: absolute;
+}
+
+.no__product__found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40rem;
+}
+
+.no__product__found p {
+    font-size: var(--product-not-found-paragraph-size);
+}
+
+.choose__delete button,
+.no__product__found p,
+.delete__main p mark {
+    color: red;
+}
+
+.delete__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 2rem;
+    gap: 5rem;
+}
+
+.choose__delete {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.choose__delete button,
+.choose__delete a {
+    font-size: var(--choose-delete-size);
+    background: var(--main-color);
+    border: 1px solid rgba(0,0,0,0.2);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    filter: grayscale(50%);
+}
+
+.choose__delete button:hover,
+.choose__delete a:hover {
+    filter: none;
+}
+
+.choose__delete a {
+    color: green;
+}
+
+.delete__main p {
+    font-size: var(--delete-message-size);
+    text-align: center;
+}
+
+.recommendation__button__container {
+    display: flex;
+    gap: 1rem;
+}
+
+.delete__form button {
+    cursor: pointer;
+}
+
+.recommendation__new__container {
+    top: 0;
+    left: 0;
+}
+
+.recommendation__stars__container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.recommendation__stars__container .fa-star-half-stroke,
+.recommendation__stars__container .fa-star {
+    font-size: var(--starts-size);
+    color: var(--orange);
+}
+
+.recommendation__price {
+    font-weight: bold;
+    font-size: var(--price-size);
+}
+
+.recommendation__price,
+.button,
+.recommendation__title,
+.recommendation__new {
+    text-transform: capitalize;
+}
+
+.recommendation__price ,
+.button,
+.recommendation__title {
+    color: var(--black);
+}
+
+.recommendation__new {
+    font-size: var(--recommendation-genre-size);
+    clip-path: polygon(0 0, 0 100%, 74% 100%, 100% 0);
+    padding: .3rem 1rem;
+    padding-right: 1.5rem;
+    background: var(--orange);
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.recommendation__informations {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+.recommendation__title {
+    font-size: var(--recommendation-title-size);
+}
+
+.recommendation__image {
+    width: 100%;
+    height: 28rem;
+}
+
+.recommendation__button__container {
+    padding: 1rem;
+    bottom: .5rem;
+}
+
+.button {
+    font-size: var(--button-size);
+    display: inline-block;
+    padding: 1rem 2rem;
+    text-align: center;
+    background: var(--main-color);
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 3px 2px 3px 0 rgba(0, 0, 0, .4);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: var(--hero-background-color);
+    color: var(--main-color);
+}
+
+.no__products {
+    color: red;
+}
+
+/* FIXME: Recommendations end */
+
+/* TODO: Hero section starts */
+
+.hero,
+.hero__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    background: var(--main-color);
+    gap: 2rem;
+    padding-bottom: 6rem;
+}
+
+.hero__image__container {
+    background: var(--hero-background-color);
+    width: 100%;
+    height: 40rem;
+    text-align: center;
+}
+
+.hero__image__container img {
+    height: 100%;
+}
+
+.hero__content {
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.hero__content h1 {
+    font-size: var(--hero-h1-size);
+    color: var(--black);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.hero__content h1 mark {
+    font-size: var(--hero-h1-mark);
+    color: var(--hero-background-color);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.hero__content .button {
+    width: 16rem;
+}
+
+.fa-arrow-down {
+    margin-left: 1rem;
+}
+
+/* FIXME: Hero section ends */
+
+/* TODO: Faqs start */
+
+.faqs,
+.faqs__section {
+    display: flex;
+}
+
+.faqs__section {
+    background: var(--main-color);
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 6rem;
+    padding: 4rem 1rem;
+}
+
+.faqs__section h2 {
+    text-align: center;
+    font-size: var(--faqs-introduction-size);
+    text-transform: capitalize;
+    color: var(--hero-background-color);
+}
+
+.faqs {
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq {
+    border: 1px solid var(--hero-background-color);
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 100rem;
+    cursor: pointer;
+}
+
+.question {
+    color: #474554;
+    font-size: var(--question-size);
+    max-width: 46rem;
+}
+
+.answer {
+    font-size: var(--answer-size);
+    color: var(--black);
+    margin-top: 2rem;
+    display: none;
+}
+
+.faq.active .answer {
+    display: block;
+}
+
+.faq i {
+    font-size: var(--faqs-arrows-size);
+    color: #474554;
+}
+
+.faq:hover i {
+    color: var(--hero-background-color);
+}
+
+.faq.active i {
+    color: var(--hero-background-color);
+}
+
+.faq.active .fa-caret-down,
+.faq .fa-caret-up {
+    display: none;
+}
+
+.faq.active .fa-caret-up {
+    display: block;
+}
+
+.question__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* FIXME: Faqs end */
+
+/* TODO: Testimonial starts */
+
+.testimonial,
+.testimonials,
+.testimonial__section {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial__section {
+    gap: 8rem;
+    padding: 1rem;
+    margin-top: 8rem;
+}
+
+.testimonial__section h2 {
+    font-size: var(--testimonial-h2-size);
+    text-align: center;
+    color: var(--hero-background-color);
+}
+
+.testimonials {
+    align-items: center;
+    justify-content: center;
+    gap: 8rem 4rem;
+}
+
+.testimonial {
+    border: 1px solid var(--hero-background-color);
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1rem;
+    padding-bottom: 2rem;
+    height: 30rem;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
+    max-width: 30rem;
+}
+
+.testimonial p {
+    color: #474554;
+}
+
+.testimonial .fa-user {
+    font-size: var(--testimonial-user-size);
+    position: relative;
+    top: -2.5rem;
+    color: var(--hero-background-color);
+}
+
+/* FIXME: Testimonial ends */
+
+/* TODO: See more starts */
+
+.product__image__container img {
+    width: 100%;
+    height: 35rem;
+    max-width: 36rem;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.see__more__content__container {
+    padding: 1rem;
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.see__more__content__container .recommendation__informations {
+    padding: 0;
+}
+
+.see__more__content__container .recommendation__stars__container {
+    margin-top: 1.5rem;
+}
+
+.see__more__h1 {
+    font-size: var(--see-more-h1-size);
+    color: var(--black);
+    max-width: 30ch;
+}
+
+.product__content {
+    font-size: var(--product-content-size);
+}
+
+.see__more__h1__desktop {
+    display: none;
+}
+
+.see__more__content__container .recommendation__price {
+    font-size: 2.5rem;
+}
+
+.arrows,
+.see__more__buttons__container,
+.see__more__action__container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.see__more__action__container form  {
+    gap: 2rem;
+}
+
+.see__more__buttons__container {
+    gap: 1rem;
+    max-width: 22rem;
+}
+
+.cart,
+.total__container,
+.amount__container {
+    display: flex;
+}
+
+.amount__container {
+    align-items: center;
+    gap: 1rem;
+}
+
+.total__container label,
+.amount__container label {
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.arrows i,
+.total__container mark,
+.total__container input,
+.amount__container input {
+    color: var(--black);
+}
+
+.total__container input,
+.amount__container input {
+    font-size: 1.5rem;
+    background: rgba(0, 0, 0, .1);
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    width: 7rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.total__container {
+    align-items: center;
+    gap: 1rem;
+}
+
+.total__container input {
+    width: 10rem;
+}
+
+.total__container mark {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.arrows {
+    gap: .5rem;
+    margin-left: .5rem;
+}
+
+.arrows i {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.cart {
+    align-items: center;
+    gap: 1rem;
+}
+
+/* FIXME: See more ends */
+
+/* TODO: Media queries start */
+
+@media screen and (min-width: 280px) {
+
+    /* TODO: Variables adjustments */
+
+    :root {
+        --recommendation-title-size: 1.8rem;
+        --paragraph-size: 1.2rem;
+        --hero-h1-size: 1.7rem;
+        --hero-h1-mark: 2.5rem;
+        --faqs-introduction-size: 4rem;
+        --testimonial-h2-size: 2.5rem;
+        --testimonial-user-size: 5rem;
+        --see-more-h1-size: 2.7rem;
+        --product-content-size: 1.6rem;
+    }
+
+    /* FIXME: Variables adjsutments end */
+
+    /* TODO: Recommendations adjustments */
+
+    .recommendation__image {
+        width: 100%;
+        height: 30rem;
+    }
+    
+    /* FIXME: Recommendations adjustments end */
+
+    /* TODO: Faqs adjustments */
+
+    .faq {
+        padding: 3rem 2rem;
+    }
+
+    /* FIXME: Faqs adjustments end */
+
+    /* TODO: Testimonial adjustments */
+
+    .testimonial__section {
+        padding: 1rem 2rem;
+        gap: 10rem;
+    }
+
+    .testimonial {
+        padding: 0 2rem;
+    }
+
+    .testimonial .fa-user {
+        top: -3.3rem;
+    }
+
+    /* FIXME: Testimonial adjustments end */
+}
+
+@media screen and (min-width: 350px) {
+
+    /* TODO: Variables adjustments */
+    
+    :root {
+        --recommendation-title-size: 2rem;
+        --paragraph-size: 1.3rem;
+        --hero-h1-size: 2rem;
+        --hero-h1-mark: 3rem;
+        --question-size: 2rem;
+        --answer-size: 1.5rem;
+        --testimonial-h2-size: 3rem;
+        --see-more-h1-size: 3rem;
+        --product-content-size: 2rem;
+    }
+
+    /* FIXME: Variables adjsutments end */
+
+    /* TODO: Recommendations adjustments */
+
+    .recommendation__image {
+        height: 32rem;
+    }
+
+    /* FIXME: Recommendations adjustments end */
+
+    /* TODO: Hero section adjustments */
+
+    .hero__content {
+        padding: 0 2rem;
+    }
+
+    /* FIXME: Hero section adjustments end */
+
+    /* TODO: Faqs adjustments */
+
+    .faq {
+        padding: 4rem 3rem;
+    }
+
+    .faqs__section {
+        padding: 4rem 2rem;
+    }
+
+    .question__container {
+        gap: 4rem;
+    }
+
+    /* FIXME: Faqs adjustments end */
+
+    /* TODO: Testimonial adjsutments */
+
+    .testimonial {
+        padding: 0 3rem;
+    }
+
+    /* FIXME: Testimonial adjsutments end */
+
+    /* TODO: See more adjustments */
+
+    .see__more__content__container {
+        padding: 1rem 2rem;
+    }
+
+    /* FIXME: See more adjustments end */
+    
+}
+
+@media screen and (min-width:450px) {
+
+    /* TODO: Recommendation starts */
+    
+    .recommendations {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 20rem));
+    }
+
+    .recommendation__image {
+        height: 28rem;
+    }
+
+    /* FIXME: Recommendation ends */
+}
+
+@media screen and (min-width:500px) {
+
+    /* TODO: Recommendation starts */
+    
+    .recommendations {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 22rem));
+    }
+
+    /* FIXME: Recommendation ends */
+}
+
+@media screen and (min-width:600px) {
+
+    /* TODO: Variables adjustments */
+    
+    :root {
+        --recommendation-title-size: 2rem;
+        --paragraph-size: 1.3rem;
+        --hero-h1-size: 2.5rem;
+        --hero-h1-mark: 4.1rem;
+        --faqs-introduction-size: 4.5rem;
+        --testimonial-h2-size: 4rem;
+        --see-more-h1-size: 4rem;
+    }
+
+    /* FIXME: Variables adjsutments end */
+
+    /* TODO: Recommendation starts */
+    
+    .recommendations {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 28rem));
+    }
+
+    .recommendation__image {
+        height: 35rem;
+    }
+
+    /* FIXME: Recommendation ends */
+}
+
+@media screen and (min-width:768px) {
+
+    /* TODO: Variables adjustments */
+
+    :root {
+        --recommendation-title-size: 2.2rem;
+        --paragraph-size: 1.4rem;
+        --delete-message-size: 5rem;
+    }
+    
+    /* FIXME: Variables adjustments end*/
+
+    /* TODO: Recommendation starts */
+    
+    .recommendations {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 23rem));
+    }
+
+    .recommendation__image {
+        height: 30rem;
+    }
+
+    /* FIXME: Recommendation ends */
+
+    /* TODO: Faqs adjustments */
+
+    .faqs__section {
+        flex-direction: row;
+        justify-content: center;
+        gap: 4rem;
+    }
+
+    .faq {
+        padding: 4rem;
+    }
+
+    /* FIXME: Faqs adjsutments end */
+
+    /* TODO: Testimonial adjsutments */
+
+    .testimonials {
+        flex-direction: row;
+    }
+
+    .testimonial {
+        height: 38rem;
+    }
+
+    /* FIXME: Testimonial adjustments end */
+
+    /* TODO: See more adjustments */
+
+    .see__more__content__container {
+        padding: 1rem 4rem;
+        padding-top: 4rem;
+        flex-direction: row;
+        gap: 5rem;
+    }
+
+    .see__more__h1__container__mobile {
+        display: none;
+    }
+
+    .see__more__h1__desktop {
+        display: block;
+    }
+
+    .see__more__content__container .recommendation__informations {
+        justify-content: flex-start;
+    }
+
+    .product__image__container img {
+        width: 30rem;
+        height: 38rem;
+    }
+
+    /* FIXME: See more adjustments end */
+}
+
+@media screen and (min-width:850px) {
+
+    /* TODO: Recommendation starts */
+    
+    .recommendations {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 25rem));
+    }
+
+    /* FIXME: Recommendation ends */
+
+    /* TODO: Faqs adjustments */
+
+    .faqs__section {
+        gap: 8rem;
+    }
+
+    /* FIXME: Faqs adjsutments end */
+    
+}
+
+@media screen and (min-width:1000px) {
+
+    /* TODO: Recommendation starts */
+    
+    .recommendations {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 30rem));
+    }
+
+    .recommendation__image {
+        height: 35rem;
+    }
+
+    /* FIXME: Recommendation ends */
+
+    /* TODO: Faqs adjustments */
+
+    .faqs__section {
+        gap: 10rem;
+    }
+
+    /* FIXME: Faqs adjsutments end */
+}
+
+@media screen and (min-width:1280px) {
+
+    /* TODO: Variables adjustments */
+
+    :root {
+        --paragraph-size: 1.5rem;
+        --testimonial-h2-size: 5rem;
+    }
+    
+    /* FIXME: Variables adjustments end*/
+
+    /* TODO: Recommendation starts */
+    
+    .recommendations {
+        grid-template-columns: repeat(3, minmax(15rem, 35rem));
+    }
+
+    .recommendation__image {
+        height: 40rem;
+    }
+
+    /* FIXME: Recommendation ends */
+
+    /* TODO: Hero adjustments */
+
+    .hero {
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .hero__image__container {
+        width: 50%;
+        height: 55rem;
+    } 
+
+    /* FIXME: Hero adjustments end */
+
+    /* TODO: Faqs adjustments */
+
+    .faqs__section {
+        gap: 22.5rem;
+    }
+
+    /* FIXME: Faqs adjsutments end */
+
+    /* TODO: See more adjustments */
+
+    .see__more__content__container {
+        padding-left: 6%;
+    }
+
+    .product__image__container img {
+        width: 36rem;
+        height: 40rem;
+    }
+
+    /* FIXME: See more adjustments end */
+
+}
+
+@media screen and (min-width: 1400px) {
+
+    /* TODO: Hero adjustments */
+
+    .hero {
+        gap: 4rem;
+    }
+
+    /* FIXME: Hero adjustments end */
+
+     /* TODO: See more adjustments */
+
+    .see__more__content__container {
+        padding-left: 10%;
+    }
+
+    /* FIXME: See more adjustments end */
+    
+}
+
+@media screen and (min-width: 1500px) {
+
+    /* TODO: Hero adjustments */
+
+    .hero {
+        gap: 8rem;
+    }
+
+    /* FIXME: Hero adjustments end */
+    
+}

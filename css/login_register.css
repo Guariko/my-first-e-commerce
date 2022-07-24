@@ -1,0 +1,248 @@
+/* TODO: Setting up the project */
+
+@import url("project_adjustments.css");
+
+:root {
+    --login-register-size: 1.2rem;
+    --login-register-button-size: 1.5rem;
+    --redirect-paragraph-size: 1.5rem;
+}
+
+/* FIXME: Setting up the project ends */
+
+/* TODO: Login and register starts */
+
+.error__message {
+    display: none;
+}
+
+.error__message.loginError, 
+.error__message.passwordError,
+.error__message.nameError,
+.error__message.emailError {
+    display: initial;
+}
+
+.form__container,
+.button__container,
+.login__register__input__container,
+.login__register__form,
+.login__register__main {
+    display: flex;
+}
+
+.form__container,
+.login__register__form,
+.login__register__main {
+    flex-direction: column;
+}
+
+.login__register__main {
+    align-items: center;
+    justify-content: center;
+    background: var(--login-register-background-color);
+    height: 100vh;
+    padding: 0 .5rem;
+}
+
+.form__container {
+    background: var(--main-color);
+    padding: 4rem 1rem;
+    width: 100%;
+    max-width: 40rem;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.redirect__container p a,
+.login__register__form button,
+.login__register__form input::placeholder,
+.logo {
+    text-transform: capitalize;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--logo-color);
+}
+
+.login__register__form {
+    gap: 2rem;
+}
+
+.login__register__input__container {
+    padding: 1rem;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,0.2);
+    font-size: var(--login-register-size);
+    align-items: center;
+    justify-content: space-between;
+    width: 18rem;
+    overflow: hidden;
+}
+
+.not__password {
+    width: 100%;
+}
+
+.login__register__input__container:hover {
+    box-shadow: 0 0 5px 2px rgb(166, 209, 252);
+    border-color: rgb(166, 209, 252);
+}
+
+.login__register__form button {
+    font-size: var(--login-register-button-size);
+    padding: .6rem 4rem;
+    border-radius: 1rem;
+    background: var(--pink);
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.login__register__form button:hover {
+    background-color: dodgerblue;
+}
+
+.button__container {
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.error__message {
+    color: rgb(230, 52, 52);
+    margin-top: -1rem;
+}
+
+.login__register__input__container i {
+    cursor: pointer;
+}
+
+.login__register__input__container i {
+    display: none;
+}
+
+.login__register__input__container .active {
+    display: initial;
+}
+
+.redirect__container p {
+    font-size: var(--redirect-paragraph-size);
+}
+
+.redirect__container p a {
+    color: dodgerblue;
+    font-weight: 500;
+}
+
+.redirect__container p a:hover {
+    color: var(--pink);
+}
+
+/* FIXME: Login and register ends */
+
+/* TODO: Media queries start */
+
+@media screen and (min-width: 250px) {
+
+    /* TODO: Setting up the project adjustments */
+
+    :root {
+        --login-register-size: 1.4rem;
+        --login-register-button-size: 1.5rem;
+    }
+    
+    /* FIXME: Setting up the project adjustments end */
+
+    /* TODO: Login register adjustments */
+
+    .login__register__input__container {
+        width: 22.5rem;
+    }
+
+    /* FIXME: Login register adjustments end */
+}
+
+@media screen and (min-width:280px) {
+
+    /* TODO: Login register adjustments */
+
+    .form__container {
+        padding: 4rem 2rem;
+    }
+
+    /* FIXME: Login register adjustments end */
+
+}
+
+@media screen and (min-width:350px) {
+
+    /* TODO: Login register adjustments */
+
+    .login__register__main {
+        padding: 0 2rem;
+    }
+
+    /* FIXME: Login register adjustments end */
+
+}
+
+@media screen and (min-width: 600px) {
+
+    /* TODO: Setting up the project adjustments */
+
+    :root {
+        --login-register-size: 1.6rem;
+        --login-register-button-size: 1.7rem;
+    }
+    
+    /* FIXME: Setting up the project adjustments end */
+
+    /* TODO: Login register adjustments */
+
+    .login__register__input__container {
+        width: 26rem;
+    }
+
+    /* FIXME: Login register adjustments end */
+    
+}
+
+@media screen and (min-width: 768px) {
+
+    /* TODO: Login register adjustments */
+
+    .form__container {
+        max-width: 50rem;
+        padding: 8rem 2rem;
+        padding-bottom: 4rem;
+    }
+
+    /* FIXME: Login register adjustments end */
+    
+}
+
+@media screen and (min-width: 1280px) {
+
+     /* TODO: Setting up the project adjustments */
+
+     :root {
+        --login-register-size: 1.8rem;
+        --login-register-button-size: 2rem;
+    }
+    
+    /* FIXME: Setting up the project adjustments end */
+
+    /* TODO: Login register adjustments */
+
+    .login__register__input__container {
+        width: 28rem;
+    }
+
+    /* FIXME: Login register adjustments end */
+    
+}
+
+/* FIXME: Media queries end */
