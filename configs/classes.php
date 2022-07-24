@@ -371,6 +371,25 @@ class DataBaseClass
 
         return $smt->fetch();
     }
+
+    public function getUserCart($id)
+    {
+
+        $dataBaseConnection = $this->dataBaseConnection();
+
+        if (!$dataBaseConnection) {
+            return false;
+        }
+
+        $sql = "SELECT * FROM carts WHERE clientId LIKE :id";
+        $smt = $dataBaseConnection->prepare($sql);
+
+        $smt->execute([
+            ":id" => $id,
+        ]);
+
+        return $smt->fetchAll();
+    }
 }
 
 class DataBase
@@ -474,5 +493,10 @@ class DataBase
     static public function getOneProductCartData($clientId, $productId)
     {
         return self::$dataBase->getOneProductCartData($clientId, $productId);
+    }
+
+    static public function getUserCart($id)
+    {
+        return self::$dataBase->getUserCart($id);
     }
 }

@@ -20,6 +20,8 @@ $scrollRecommendations = "#recommendations";
 $scrollFaqs = "#faqs";
 $scrollTestimonial = "#testimonial";
 
+$cartPath = "views/cart.php";
+
 include("views/templates/header.php");
 ?>
 

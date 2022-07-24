@@ -13,6 +13,8 @@ $productName = $productData["name"];
 
 $cartData = [];
 
+$addedToCart = "";
+
 if (isset($_POST["add__to__cart"])) {
 
     if (isset($_SESSION["userId"])) {
@@ -38,6 +40,7 @@ if (isset($_POST["add__to__cart"])) {
         $cartData["total"] = str_replace(".", ",", $cartData["total"]);
 
         DataBase::updateCart($userId, $cartData);
+        $addedToCart = "added";
     } else {
         $cartData["productId"] = $productId;
         $cartData["amount"] = $amount;
@@ -45,6 +48,7 @@ if (isset($_POST["add__to__cart"])) {
         $cartData["product"] = $productName;
 
         DataBase::createUserCart($userId, $cartData);
+        $addedToCart = "added";
     }
 }
 

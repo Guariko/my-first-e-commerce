@@ -32,6 +32,16 @@
     --testimonial-user-size: 4rem;
     --see-more-h1-size: 2.5rem;
     --product-content-size: 1.4rem;
+    --my-cart-h1-size: 2.2rem;
+    --my-cart-product-h2-size: 1.1rem;
+    --my-cart-price-size: 1.2rem;
+    --my-cart-change-quantity-size: .8rem;
+    --my-cart-label-price-information-size: 1rem;
+    --my-cart-price-input-size: .8rem;
+    --my-cart-delete-size: .8rem;
+    --my-cart-image-size: 7rem;
+    --my-cart-amount-width: 3rem;
+    --my-cart-total-width: 4.5rem;
 }
 
 /* FIXME: Setting up the project and variables ends */
@@ -521,7 +531,6 @@
 }
 
 .arrows {
-    gap: .5rem;
     margin-left: .5rem;
 }
 
@@ -535,9 +544,174 @@
     gap: 1rem;
 }
 
+.see__more__buttons__container i {
+    font-size: 1.5rem;
+}
+
+.see__more__buttons__container .fa-cart-plus {
+    display: none;
+    color: rgba(66, 146, 32, 0.89);
+}
+
+.see__more__buttons__container.added .fa-cart-shopping {
+    display: none;
+}
+
+.see__more__buttons__container.added .fa-cart-plus {
+    display: block;
+} 
+
 /* FIXME: See more ends */
 
+/* TODO: Cart starts */
+
+.cart__product__image__container img {
+    width: var(--my-cart-image-size);
+    aspect-ratio: 1;
+}
+
+.cart__main {
+    overflow: hidden;
+    padding: .5rem;
+    padding-top: 2rem;
+}
+
+.cart__main h1 {
+    font-size: var(--my-cart-h1-size);
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--hero-background-color);
+}
+
+.cart__main h1 i {
+    margin-left: .5rem;
+}
+
+.prices__information > div,
+.change__quantity,
+.prices__information,
+.product__image__name__container,
+.cart__product__informations,
+.my__cart {
+    display: flex;
+}
+
+.my__cart {
+    margin-top: 4rem;
+    flex-direction: column;
+}
+
+.cart__product__container {
+    border: 1px solid rgba(0, 0, 0, .2);
+    padding: 2rem 1rem;
+    border-radius: 3px;
+}
+
+.cart__product__informations {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cart__product__informations h2 {
+    font-size: var(--my-cart-product-h2-size);
+}
+
+.prices__information label,
+.change__quantity i,
+.cart__product__informations mark {
+    color: var(--black);
+}
+
+.cart__product__informations mark {
+    font-size: var(--my-cart-price-size);
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.product__image__name__container {
+    gap: 2rem;
+}
+
+.prices__information {
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.change__quantity {
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.change__quantity i {
+    font-size: var(--my-cart-change-quantity-size);
+    cursor: pointer;
+}
+
+.change__quantity .fa-circle-minus:hover {
+    color: rgb(230, 115, 115);
+}
+
+.change__quantity .fa-circle-plus:hover {
+    color: dodgerblue;
+}
+
+.prices__information label {
+    font-size: var(--my-cart-label-price-information-size);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.prices__information > div {
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.quantity__container input {
+    width: var(--my-cart-amount-width);
+    text-align: center;
+}
+
+.prices__information input {
+    background: rgba(0, 0, 0, .1);
+    font-size: var(--my-cart-price-input-size);
+    padding: .5rem;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 5px;
+}
+
+.prices__information button {
+    font-size: var(--my-cart-delete-size);
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 4px;
+    color: rgb(230, 115, 115);
+    text-transform: capitalize;
+    margin-left: 1rem;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.cart__total__container input {
+    text-align: center;
+    width: var(--my-cart-total-width);
+}
+
+/* FIXME: Cart ends */
+
 /* TODO: Media queries start */
+
+@media screen and (min-width: 215px) {
+
+    .prices__informations__button__container {
+        position: absolute;
+        right: .1rem;
+    }
+    
+}
 
 @media screen and (min-width: 280px) {
 
@@ -553,6 +727,16 @@
         --testimonial-user-size: 5rem;
         --see-more-h1-size: 2.7rem;
         --product-content-size: 1.6rem;
+        --my-cart-h1-size: 2.6rem;
+        --my-cart-product-h2-size: 1.4rem;
+        --my-cart-price-size: 1.5rem;
+        --my-cart-change-quantity-size: 1rem;
+        --my-cart-label-price-information-size: 1.4rem;
+        --my-cart-price-input-size: 1rem;
+        --my-cart-delete-size: 1.3rem;
+        --my-cart-image-size: 9rem;
+        --my-cart-amount-width: 4rem;
+        --my-cart-total-width: 6rem;
     }
 
     /* FIXME: Variables adjsutments end */
@@ -590,6 +774,19 @@
     }
 
     /* FIXME: Testimonial adjustments end */
+
+    /* TODO: Cart adjustments */
+
+    .prices__information {
+        gap: 2rem;
+    }
+
+    .prices__informations__button__container {
+        position: absolute;
+        right: .5rem;
+    }
+
+    /* FIXME: Cart adjustments end */
 }
 
 @media screen and (min-width: 350px) {
@@ -606,6 +803,15 @@
         --testimonial-h2-size: 3rem;
         --see-more-h1-size: 3rem;
         --product-content-size: 2rem;
+        --my-cart-h1-size: 3rem;
+        --my-cart-product-h2-size: 1.5rem;
+        --my-cart-change-quantity-size: 1.2rem;
+        --my-cart-label-price-information-size: 1.6rem;
+        --my-cart-price-input-size: 1.2rem;
+        --my-cart-delete-size: 1.5rem;
+        --my-cart-image-size: 10rem;
+        --my-cart-amount-width: 5rem;
+        --my-cart-total-width: 7rem;
     }
 
     /* FIXME: Variables adjsutments end */
@@ -657,10 +863,28 @@
     }
 
     /* FIXME: See more adjustments end */
+
+    /* TODO: Cart adjustments */
+
+    .cart__main {
+        padding: 1rem 2rem;
+    }
+
+    /* FIXME: Cart adjustments end */
     
 }
 
 @media screen and (min-width:450px) {
+
+    /* TODO: Setting up the project starts */
+
+    :root {
+        --my-cart-product-h2-size: 2rem;
+        --my-cart-change-quantity-size: 1.5rem;
+        --my-cart-h1-size: 3.5rem;
+    }
+
+    /* FIXME: Setting up the project ends */
 
     /* TODO: Recommendation starts */
     
@@ -673,6 +897,7 @@
     }
 
     /* FIXME: Recommendation ends */
+
 }
 
 @media screen and (min-width:500px) {
@@ -684,6 +909,18 @@
     }
 
     /* FIXME: Recommendation ends */
+
+    /* TODO: Cart adjustments */
+
+    .my__cart {
+        align-items: center;
+    }
+
+    .cart__product__container {
+        width: 44rem;
+    }
+
+    /* FIXME: Cart adjustments end */
 }
 
 @media screen and (min-width:600px) {
@@ -723,6 +960,8 @@
         --recommendation-title-size: 2.2rem;
         --paragraph-size: 1.4rem;
         --delete-message-size: 5rem;
+        --my-cart-image-size: 11rem;
+         --my-cart-h1-size: 4rem;
     }
     
     /* FIXME: Variables adjustments end*/
@@ -792,6 +1031,21 @@
     }
 
     /* FIXME: See more adjustments end */
+
+    /* TODO: Cart adjustments */
+
+    .cart__product__container {
+        width: initial;
+    }
+
+    .my__cart {
+        display: grid;
+        justify-content: center;
+        align-items: initial;
+        grid-template-columns: repeat(2, 35rem);
+    }
+
+    /* FIXME: Cart adjustments end */
 }
 
 @media screen and (min-width:850px) {
@@ -835,6 +1089,14 @@
     }
 
     /* FIXME: Faqs adjsutments end */
+
+    /* TODO: Cart adjustments */
+
+    .my__cart {
+        grid-template-columns: repeat(2, 40rem);
+    }
+
+    /* FIXME: Cart adjustments end */
 }
 
 @media screen and (min-width:1280px) {
@@ -844,6 +1106,7 @@
     :root {
         --paragraph-size: 1.5rem;
         --testimonial-h2-size: 5rem;
+           --my-cart-image-size: 12rem;
     }
     
     /* FIXME: Variables adjustments end*/
@@ -895,6 +1158,14 @@
     }
 
     /* FIXME: See more adjustments end */
+
+    /* TODO: Cart adjustments */
+
+    .my__cart {
+        grid-template-columns: repeat(3, 40rem);
+    }
+
+    /* FIXME: Cart adjustments end */
 
 }
 

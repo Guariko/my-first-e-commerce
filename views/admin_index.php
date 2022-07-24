@@ -26,6 +26,8 @@ $scrollRecommendations = "#recommendations";
 $scrollFaqs = "#faqs";
 $scrollTestimonial = "$userInterfacePath#testimonial";
 
+$cartPath = "cart.php";
+
 include("templates/header.php");
 
 ?>

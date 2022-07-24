@@ -14,6 +14,7 @@ if (isset($_SESSION["searchForValue"])) {
     $searchedValue = $_SESSION["searchForValue"];
 }
 
+
 ?>
 
 <header class="header">
@@ -61,7 +62,7 @@ if (isset($_SESSION["searchForValue"])) {
                     <i class="fas fa-times"></i>
                 </li>
                 <li>
-                    <a class="header__nav__bar__item__mobile" href="#">homens</a>
+                    <a class="header__nav__bar__item__mobile" href="<?= $cartPath ?>">carrinho</a>
                 </li>
                 <li>
                     <a class="header__nav__bar__item__mobile" href="#">mulhers</a>

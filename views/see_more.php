@@ -25,6 +25,8 @@ $scrollRecommendations = "$userInterfacePath#recommendations";
 $scrollFaqs = "$userInterfacePath#faqs";
 $scrollTestimonial = "$userInterfacePath#testimonial";
 
+$cartPath = "cart.php";
+
 include("templates/header.php");
 
 $dataBaseConfigPath = "../configs/dataBaseConfig.php";
@@ -85,8 +87,10 @@ require_once("../configs/see_more_controller.php");
                         <input type="text" name="total" value="<?= $productData["price"] ?>" readonly id="total">
                         <mark>r$</mark>
                     </div>
-                    <div class="see__more__buttons__container">
-                        <button class="button cart " type="submit" name="add__to__cart">adicinar ao carrinho <i class="fa-solid fa-cart-shopping"></i></button>
+                    <div class="see__more__buttons__container <?= $addedToCart ?> ">
+                        <button class="button cart " type="submit" name="add__to__cart">adicinar ao carrinho <i class="fa-solid fa-cart-shopping"></i>
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
                         <button type="submit" name="buy__now" class="button">comprar agora</button>
                     </div>
                 </form>
@@ -96,10 +100,6 @@ require_once("../configs/see_more_controller.php");
 
 
     </div>
-
-    <?php
-
-    ?>
 
 </main>
 
