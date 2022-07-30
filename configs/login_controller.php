@@ -33,6 +33,7 @@ if (isset($_POST["login"])) {
                 }
                 $_SESSION["userLogged"] = true;
                 $_SESSION["userId"] = DataBase::getUserId($isEmail);
+                $_SESSION["userData"] = DataBase::getUserData($_SESSION["userId"]);
                 header("location: $homePath");
             } else {
                 $loginError = "loginError";

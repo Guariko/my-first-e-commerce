@@ -24,8 +24,18 @@ increaseAmount.addEventListener("click", () => {
   if (amount.value < maxAmountOfProduct) {
     amount.value++;
     total.value = productPrice * amount.value;
-    total.value = Math.floor(total.value * 100) / 100;
-    total.value = total.value.replace(".", ",");
+    total.value = Math.floor(total.value * 1000) / 1000;
+
+    total.value = total.value.toString().replace(".", ",");
+    if (total.value.includes(",")) {
+      decimals = total.value.split(",");
+
+      if (decimals[1].length > 2) {
+        total.value = total.value.slice(0, -1);
+      }
+    } else {
+      total.value += ",00";
+    }
   }
 });
 
@@ -33,8 +43,17 @@ decreaseAmount.addEventListener("click", () => {
   if (amount.value > minAmountOfProduct) {
     amount.value--;
     total.value = productPrice * amount.value;
-    total.value = Math.floor(total.value * 100) / 100;
-    total.value = total.value.replace(".", ",");
+    total.value = Math.floor(total.value * 1000) / 1000;
+    total.value = total.value.toString().replace(".", ",");
+    if (total.value.includes(",")) {
+      decimals = total.value.split(",");
+
+      if (decimals[1].length > 2) {
+        total.value = total.value.slice(0, -1);
+      }
+    } else {
+      total.value += ",00";
+    }
   }
 });
 
@@ -56,8 +75,17 @@ amount.addEventListener("keydown", (e) => {
 
   if (amount.value.length >= minLength || amount.value >= minAmountOfProduct) {
     total.value = productPrice * amount.value;
-    total.value = Math.floor(total.value * 100) / 100;
-    total.value = total.value.replace(".", ",");
+    total.value = Math.floor(total.value * 1000) / 1000;
+    total.value = total.value.toString().replace(".", ",");
+    if (total.value.includes(",")) {
+      decimals = total.value.split(",");
+
+      if (decimals[1].length > 2) {
+        total.value = total.value.slice(0, -1);
+      }
+    } else {
+      total.value += ",00";
+    }
   }
 });
 
@@ -68,8 +96,17 @@ amount.addEventListener("keyup", (e) => {
 
   if (amount.value >= minLength && amount.value.length <= maxLength) {
     total.value = productPrice * amount.value;
-    total.value = Math.floor(total.value * 100) / 100;
-    total.value = total.value.replace(".", ",");
+    total.value = Math.floor(total.value * 1000) / 1000;
+    total.value = total.value.toString().replace(".", ",");
+    if (total.value.includes(",")) {
+      decimals = total.value.split(",");
+
+      if (decimals[1].length > 2) {
+        total.value = total.value.slice(0, -1);
+      }
+    } else {
+      total.value += ",00";
+    }
   }
 
   if (amount.value.length <= maxLength) {
@@ -81,11 +118,37 @@ amount.addEventListener("keyup", (e) => {
   }
 });
 
-/* FIXME: See more ends */
+const addToCartButton = document.querySelector("#add__to__cart__button");
+const userLogged = document.querySelector("#check__user__logged");
+const userNotLoggedContainer = document.querySelector(
+  ".user__not__logged__container"
+);
+const closeUserNotLoggedContainer = document.querySelector(
+  ".user__not__logged__container .fa-times"
+);
 
-// cartInformations.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   total.value = productPrice * amount.value;
-//   total.value = Math.floor(total.value * 100) / 100;
-//   total.value = total.value.replace(".", ",");
-// });
+addToCartButton.addEventListener("click", () => {
+  cartInformations.addEventListener("submit", (e) => {
+    if (!userLogged.value) {
+      e.preventDefault();
+      addClass(userNotLoggedContainer, classToShowElement);
+    }
+  });
+});
+
+closeUserNotLoggedContainer.addEventListener("click", (e) => {
+  removeClass(userNotLoggedContainer, classToShowElement);
+});
+
+const cannotAddMoreContainer = document.querySelector(
+  ".cannot__add__more__container"
+);
+const closeCannotAddMoreContainer = document.querySelector(
+  ".cannot__add__more__container mark"
+);
+
+closeCannotAddMoreContainer.addEventListener("click", (e) => {
+  removeClass(cannotAddMoreContainer, classToShowElement);
+});
+
+/* FIXME: See more ends */

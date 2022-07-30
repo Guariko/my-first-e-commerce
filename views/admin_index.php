@@ -2,6 +2,22 @@
 
 session_start();
 
+unset($_SESSION["errorMessageEmail"]);
+unset($_SESSION["errorMessageName"]);
+unset($_SESSION["errorMessageSubject"]);
+unset($_SESSION["contactUserName"]);
+unset($_SESSION["contactUserSubject"]);
+unset($_SESSION["contactUserEmail"]);
+unset($_SESSION["displayMessageSent"]);
+unset($_SESSION["productNameValue"]);
+unset($_SESSION["productContentValue"]);
+unset($_SESSION["productPriceValue"]);
+unset($_SESSION["imageValue"]);
+
+if (!isset($_SESSION["adminUsing"])) {
+    header("location: ../index.php");
+}
+
 $model = "Admin";
 $style = "../css/admin_styles.css";
 $normalizeCss = "../css/normalize.css";

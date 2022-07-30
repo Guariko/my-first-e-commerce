@@ -1,5 +1,25 @@
 <?php
 
+session_start();
+
+if (isset($_SESSION["userLogged"])) {
+    header("location: ../index.php");
+    die();
+}
+
+if (isset($_SESSION["adminUsing"])) {
+    header("location: admin_index.php");
+    die();
+}
+
+unset($_SESSION["errorMessageEmail"]);
+unset($_SESSION["errorMessageName"]);
+unset($_SESSION["errorMessageSubject"]);
+unset($_SESSION["contactUserName"]);
+unset($_SESSION["contactUserSubject"]);
+unset($_SESSION["contactUserEmail"]);
+unset($_SESSION["displayMessageSent"]);
+
 $model = "Registrar-se";
 $style = "../css/login_register.css";
 $normalizeCss = "../css/normalize.css";

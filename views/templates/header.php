@@ -14,7 +14,6 @@ if (isset($_SESSION["searchForValue"])) {
     $searchedValue = $_SESSION["searchForValue"];
 }
 
-
 ?>
 
 <header class="header">
@@ -43,11 +42,29 @@ if (isset($_SESSION["searchForValue"])) {
                     <a class="header__nav__bar__item__desktop" href="<?= $scrollFaqs ?>">dúvidas</a>
                 </li>
                 <li>
-                    <a class="header__nav__bar__item__desktop" href="<?= $scrollTestimonial ?>">tertimonial</a>
+                    <a class="header__nav__bar__item__desktop" href="<?= $cartPath ?>"><i class="fa-solid fa-cart-shopping"></i> carrinho </a>
                 </li>
             </ul>
         </nav>
     </div>
+
+    <nav class="login__register__nav__bar__container__desktop">
+
+        <?php if (isset($_SESSION["userLogged"]) || isset($_SESSION["adminUsing"])) : ?>
+            <ul class="login__register__nav__bar__desktop">
+
+                <li><a href="<?= $logOutPath ?>" class="login__register__item__desktop">sair</a></li>
+            </ul>
+
+        <?php else : ?>
+
+            <ul class="login__register__nav__bar__desktop">
+                <li><a href="<?= $registerPath ?>" class="login__register__item__desktop register ">register</a></li>
+                <li><a href="<?= $loginPath ?>" class="login__register__item__desktop">login</a></li>
+            </ul>
+        <?php endif; ?>
+
+    </nav>
 
     <div class="header__bars">
         <i class="fas fa-bars"></i>
@@ -62,16 +79,16 @@ if (isset($_SESSION["searchForValue"])) {
                     <i class="fas fa-times"></i>
                 </li>
                 <li>
-                    <a class="header__nav__bar__item__mobile" href="<?= $cartPath ?>">carrinho</a>
+                    <a class="header__nav__bar__item__mobile" href="<?= $scrollHome ?>">home</a>
                 </li>
                 <li>
-                    <a class="header__nav__bar__item__mobile" href="#">mulhers</a>
+                    <a class="header__nav__bar__item__mobile" href="<?= $scrollRecommendations ?>">produtos</a>
                 </li>
                 <li>
-                    <a class="header__nav__bar__item__mobile" href="#">crianças</a>
+                    <a class="header__nav__bar__item__mobile" href="<?= $scrollFaqs ?>">dúvidas</a>
                 </li>
                 <li>
-                    <a class="header__nav__bar__item__mobile" href="#">sobre nós</a>
+                    <a class="header__nav__bar__item__mobile" href="<?= $cartPath ?>"> <i class="fa-solid fa-cart-shopping"></i> carrinho</a>
                 </li>
             </ul>
         </nav>
@@ -81,14 +98,14 @@ if (isset($_SESSION["searchForValue"])) {
             <?php if (isset($_SESSION["userLogged"]) || isset($_SESSION["adminUsing"])) : ?>
                 <ul class="login__register__nav__bar">
 
-                    <li><a href="<?= $logOutPath ?>" class="login__register__item login">sair</a></li>
+                    <li><a href="<?= $logOutPath ?>" class="login__register__item__desktop">sair</a></li>
                 </ul>
 
             <?php else : ?>
 
                 <ul class="login__register__nav__bar">
-                    <li><a href="<?= $registerPath ?>" class="login__register__item register">register</a></li>
-                    <li><a href="<?= $loginPath ?>" class="login__register__item login">login</a></li>
+                    <li><a href="<?= $registerPath ?>" class="login__register__item__desktop register">register</a></li>
+                    <li><a href="<?= $loginPath ?>" class="login__register__item__desktop">login</a></li>
                 </ul>
             <?php endif; ?>
 

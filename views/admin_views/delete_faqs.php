@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["adminUsing"])) {
+    header("location: ../../index.php");
+}
+
+unset($_SESSION["imageValue"]);
+
 require_once("../../configs/classes.php");
 require_once("../../configs/dataBaseConfig.php");
 
@@ -23,13 +31,19 @@ if (isset($_POST["delete__faq"])) {
 ?>
 
 <main class="delete__main">
-    <p>Você tem certeza que quer apagar a FAQ <br> <mark> <?= $faqData["question"]  ?>? </mark> </p>
-    <div class="choose__delete">
-        <a href="<?= "../admin_index.php" ?>">Não apagar</a>
-        <form action="" method="POST">
-            <button type="submit" name="delete__faq">Sim! delete essa FAQ</button>
-        </form>
-    </div>
+    <?php if ($faqData) : ?>
+        <p>Você tem certeza que quer apagar a FAQ <br> <mark> <?= $faqData["question"]  ?>? </mark> </p>
+        <div class="choose__delete">
+            <a href="<?= "../admin_index.php" ?>">Não apagar</a>
+            <form action="" method="POST">
+                <button type="submit" name="delete__faq">Sim! delete essa FAQ</button>
+            </form>
+        </div>
+    <?php else : ?>
+
+        <p>FAQ não encontrada.</p>
+
+    <?php endif; ?>
 </main>
 
 <?php

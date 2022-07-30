@@ -390,6 +390,95 @@ class DataBaseClass
 
         return $smt->fetchAll();
     }
+
+    public function deleteFromCart($id)
+    {
+        $dataBaseConnection = $this->dataBaseConnection();
+
+        if (!$dataBaseConnection) {
+            return false;
+        }
+
+        $sql = "DELETE FROM carts WHERE id LIKE :id";
+        $smt = $dataBaseConnection->prepare($sql);
+
+        $smt->execute([
+            ":id" => $id,
+        ]);
+    }
+
+    public function updateCartUsingCartId($id, $cartData)
+    {
+        $dataBaseConnection = $this->dataBaseConnection();
+
+        if (!$dataBaseConnection) {
+            return false;
+        }
+
+        $sql = "UPDATE carts SET amount = :amount, total = :total, datetime = now() WHERE id LIKE :id";
+        $smt = $dataBaseConnection->prepare($sql);
+
+        $smt->execute([
+            ":amount" => $cartData["amount"],
+            ":total" => $cartData["total"],
+            ":id" => $id,
+        ]);
+    }
+
+    public function getUserData($id)
+    {
+
+        $dataBaseConnection = $this->dataBaseConnection();
+
+        if (!$dataBaseConnection) {
+            return false;
+        }
+
+        $sql = "SELECT * FROM clients WHERE id LIKE :id";
+        $smt = $dataBaseConnection->prepare($sql);
+
+        $smt->execute([
+            ":id" => $id,
+        ]);
+
+        return $smt->fetch();
+    }
+
+    public function updateTotalCart($id, $newTotal)
+    {
+        $dataBaseConnection = $this->dataBaseConnection();
+
+        if (!$dataBaseConnection) {
+            return false;
+        }
+
+        $sql = "UPDATE carts SET total = :total WHERE id LIKE :id";
+        $smt = $dataBaseConnection->prepare($sql);
+
+        $smt->execute([
+            ":total" => $newTotal,
+            ":id" => $id,
+        ]);
+    }
+
+    public function getProductAmount($userId, $productId)
+    {
+        $dataBaseConnection = $this->dataBaseConnection();
+
+        if (!$dataBaseConnection) {
+            return false;
+        }
+
+        $sql = "SELECT amount FROM carts WHERE productId LIKE :productId AND clientId LIKE :clientId";
+        $smt = $dataBaseConnection->prepare($sql);
+
+        $smt->execute([
+            ":productId" => $productId,
+            ":clientId" => $userId,
+        ]);
+
+        return $smt->fetch();
+    }
 }
 
 class DataBase
@@ -498,5 +587,30 @@ class DataBase
     static public function getUserCart($id)
     {
         return self::$dataBase->getUserCart($id);
+    }
+
+    static public function deleteFromCart($id)
+    {
+        return self::$dataBase->deleteFromCart($id);
+    }
+
+    static public function updateCartUsingCartId($id, $cartData)
+    {
+        return self::$dataBase->updateCartUsingCartId($id, $cartData);
+    }
+
+    static public function getUserData($id)
+    {
+        return self::$dataBase->getUserData($id);
+    }
+
+    static public function updateTotalCart($id, $newTotal)
+    {
+        return self::$dataBase->updateTotalCart($id, $newTotal);
+    }
+
+    static public function getProductAmount($userId, $productId)
+    {
+        return self::$dataBase->getProductAmount($userId, $productId);
     }
 }

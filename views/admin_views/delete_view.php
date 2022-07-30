@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["adminUsing"])) {
+    header("location: ../../index.php");
+}
+
+unset($_SESSION["imageValue"]);
+
 require_once("../../configs/classes.php");
 require_once("../../configs/dataBaseConfig.php");
 
@@ -23,13 +31,21 @@ if (isset($_POST["delete__product"])) {
 ?>
 
 <main class="delete__main">
-    <p>Você tem certeza que quer apagar o produto <br> <mark> <?= $productData["name"]  ?>? </mark> </p>
-    <div class="choose__delete">
-        <a href="<?= "../admin_index.php" ?>">Não apagar</a>
-        <form action="" method="POST">
-            <button type="submit" name="delete__product">Sim! delete o produto</button>
-        </form>
-    </div>
+
+    <?php if ($productData) : ?>
+        <p>Você tem certeza que quer apagar o produto <br> <mark> <?= $productData["name"]  ?>? </mark> </p>
+        <div class="choose__delete">
+            <a href="<?= "../admin_index.php" ?>">Não apagar</a>
+            <form action="" method="POST">
+                <button type="submit" name="delete__product">Sim! delete o produto</button>
+            </form>
+        </div>
+
+    <?php else : ?>
+
+        <p>Nenhum produto encontrado.</p>
+
+    <?php endif; ?>
 </main>
 
 <?php

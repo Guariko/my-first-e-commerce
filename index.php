@@ -2,6 +2,10 @@
 
 session_start();
 
+if (isset($_SESSION["adminUsing"])) {
+    header("location: views/admin_index.php");
+    die();
+}
 
 $_SESSION["cart"] = [];
 
@@ -18,7 +22,7 @@ include("views/templates/head__foot/head.php");
 $scrollHome = "#home";
 $scrollRecommendations = "#recommendations";
 $scrollFaqs = "#faqs";
-$scrollTestimonial = "#testimonial";
+
 
 $cartPath = "views/cart.php";
 
@@ -45,7 +49,13 @@ include("views/templates/header.php");
 
     include("views/faqs.php");
 
+    $mailerPath = "configs/mailer";
+    $contactControllerPath = "configs/contact_controller.php";
+    include("views/contact.php");
+
     include("views/testimonial.php");
+
+    include("views/templates/footer.php");
     ?>
 
 </main>

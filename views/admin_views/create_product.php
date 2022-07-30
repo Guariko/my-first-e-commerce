@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["adminUsing"])) {
+    header("location: ../../index.php");
+}
+
+
 $model = "Criar novo Produto";
 $style = "../../css/admin_styles.css";
 $normalizeCss = "../../css/normalize.css";
@@ -23,12 +30,11 @@ require_once("../../configs/create_product_configs.php");
 
         <img src="<?= $imagesFolderPath . $imageName ?>" alt="">
 
-
-
         <form action="" method="POST" class="product__image__buttons" enctype="multipart/form-data">
             <label for="product__image__file">escolher imagem</label>
-            <input type="file" name="image" id="product__image__file">
+            <input type="file" name="image" id="product__image__file" accept="image/*" value="<?= $imageValue ?>">
             <button type="submit" class="button" name="update__image">atualizar imagem</button>
+            <p class="error__message <?= $productImageError ?>"><?= $productImageErrorMessage ?></p>
         </form>
 
 
@@ -47,17 +53,20 @@ require_once("../../configs/create_product_configs.php");
         <div class="product__informations__container">
             <div class="product__input__container">
                 <label for="name">nome do produto</label>
-                <input type="text" name="name" id="name" minlength="5" maxlength="250" autocomplete="off">
+                <input type="text" name="name" id="name" autocomplete="off" value="<?= $productNameValue ?>">
+                <p class="error__message <?= $productNameError ?>"><?= $productNameErrorMessage ?></p>
             </div>
 
             <div class="product__input__container">
                 <label for="content">descrição do produto</label>
-                <textarea name="content" id="content" cols="30" rows="10" minlength="5" maxlength="3000" autocomplete="off"></textarea>
+                <textarea name="content" id="content" cols="30" rows="10" autocomplete="off"><?= $productContentValue ?></textarea>
+                <p class="error__message <?= $productContentError ?>"><?= $productContentErrorMessage ?></p>
             </div>
 
             <div class="product__input__container">
                 <label for="price">preço</label>
-                <input type="text" name="price" id="price" minlength="1" maxlength="20" autocomplete="off">
+                <input type="text" name="price" id="price" autocomplete="off" value="<?= $productPriceValue ?>">
+                <p class="error__message <?= $productPriceError ?>"><?= $productPriceErrorMessage ?></p>
             </div>
 
             <div class="product__input__container">
@@ -66,22 +75,23 @@ require_once("../../configs/create_product_configs.php");
                 <div class="product__choices__container">
                     <div>
 
-                        <input type="radio" value="men" name="genre" id="men" minlength="1" maxlength="20" autocomplete="off">
+                        <input type="radio" value="men" name="genre" id="men" autocomplete="off" <?= $menSelected ?>>
                         <label for="men">homens</label>
                     </div>
 
                     <div>
 
-                        <input type="radio" value="women" name="genre" id="women" minlength="1" maxlength="20" autocomplete="off">
+                        <input type="radio" value="women" name="genre" id="women" autocomplete="off" <?= $womenSelected ?>>
                         <label for="women">mulheres</label>
                     </div>
 
                     <div>
-                        <input type="radio" value="children" name="genre" id="children" minlength="1" maxlength="20" autocomplete="off">
+                        <input type="radio" value="children" name="genre" id="children" autocomplete="off" <?= $childrenSelected ?>>
                         <label for="children">crianças</label>
                     </div>
 
                 </div>
+                <p class="error__message <?= $productGenreError ?>"><?= $productGenreErrorMessage ?></p>
 
             </div>
 

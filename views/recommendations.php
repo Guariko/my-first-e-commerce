@@ -12,7 +12,6 @@ if (isset($_SESSION["allRecommendations"])) {
 
 ?>
 
-
 <?php if (isset($allRecommendations) && count($allRecommendations) > 0) : ?>
 
     <section class="recommendations" id="recommendations">
@@ -39,6 +38,10 @@ if (isset($_SESSION["allRecommendations"])) {
                         <h2 class="recommendation__title"> <?= $recommendation["name"] ?> </h2>
                     </div>
 
+                </div>
+
+                <div class="price__stars__container">
+
                     <div class="recommendation__stars__container">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -52,7 +55,6 @@ if (isset($_SESSION["allRecommendations"])) {
                             <?= $recommendation["price"] ?> r$
                         </mark>
                     </div>
-
                 </div>
 
                 <div class="recommendation__button__container">

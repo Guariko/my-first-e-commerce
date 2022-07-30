@@ -71,7 +71,6 @@
     justify-content: space-between;
 }
 
-.login__register__item,
 .header__nav__bar__item__mobile,
 .header__nav__bar__mobile .logo {
     text-transform: capitalize;
@@ -143,16 +142,24 @@
     gap: 1rem;
 }
 
-.login__register__item {
-    font-size: var(--login-register-item-size);
+.login__register__item__desktop {
     display: inline-block;
+    border: 1px solid var(--hero-background-color);
+    padding: 1rem 0;
     width: 100%;
+    text-transform: capitalize;
     text-align: center;
-    padding: 1rem;
-    background: var(--main-color);
-    border: 1px solid var(--black);
-    box-shadow: 4px 2px 6px 2px rgba(0, 0, 0, .2);
-    color: var(--black);
+    font-size: 2rem;
+    color: var(--hero-background-color);
+}
+
+.register {
+    color: rgb(115, 184, 253);
+    border-color: rgb(115, 184, 253);
+}
+
+.login__register__nav__bar__container__desktop {
+    display: none;
 }
 
 /* FIXME: Header ends */
@@ -335,15 +342,29 @@
     /* FIXME: Variables adjustments end */
 
     /* TODO: Header adjustments */
+
+    .header__bars {
+        display: none;
+    }
+
+    .login__register__nav__bar__desktop {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .login__register__item__desktop {
+        width: 10rem;
+    }
     
     .header {
-        gap: 15rem;
+        gap: 5rem;
     }
-
+    
     .search__here {
-        margin-left: 13rem;
+        margin-left: 1rem;
     }
-
+    
+    .login__register__nav__bar__container__desktop,
     .header__nav__bar__container__desktop {
         display: block;
     }
@@ -351,7 +372,7 @@
     .header__nav__bar__desktop {
         display: flex;
         gap: 1.5rem;
-        margin-left: 4rem;
+        margin-left: 1rem;
     }
 
     .header__nav__bar__item__desktop {
@@ -364,17 +385,19 @@
         color: var(--hero-background-color);
     }
 
-    .bars__informations {
-        width: 20%;
-        transition:  right .7s linear;
-    }
-    
-    .bars__informations.active {
-        box-shadow: -0vw 0 0 81vw rgba(0, 0, 0, .2);
-    }
-
-
     /* FIXME: Header adjustments end */
+    
+}
+
+@media screen and (min-width: 2000px) {
+
+    /* TODO: Setting up the project adjustments */
+
+    :root {
+        --header-padding: 1rem 8%;
+    }
+
+    /* FIXME: Setting up the project adjustmens end */
     
 }
 

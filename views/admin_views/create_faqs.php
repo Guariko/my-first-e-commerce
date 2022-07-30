@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["adminUsing"])) {
+    header("location: ../../index.php");
+}
+
+unset($_SESSION["imageValue"]);
+
 $model = "Criar pergunta frequênte";
 $style = "../../css/admin_styles.css";
 $normalizeCss = "../../css/normalize.css";
@@ -15,8 +23,8 @@ $questionError = "";
 $displayAnswerError = "";
 $answerError = "";
 
-$questionValue = "";
-$answerValue = "";
+$questionValue = null;
+$answerValue = null;
 
 require_once("../../configs/create_faqs_controller.php");
 
@@ -31,19 +39,19 @@ include("../templates/head__foot/head.php");
     <form action="" method="POST">
 
         <div>
-            <textarea name="question" cols="30" rows="10" placeholder="pergunta"> <?= $questionValue ?> </textarea>
+            <textarea name="question" cols="30" rows="10" placeholder="pergunta"><?= $questionValue ?></textarea>
             <p class="error <?= $displayQuestionError ?> "><?= $questionError ?></p>
         </div>
 
         <div>
-            <textarea name="answer" cols="30" rows="10" placeholder="resposta"> <?= $answerValue ?> </textarea>
+            <textarea name="answer" cols="30" rows="10" placeholder="resposta"><?= $answerValue ?></textarea>
             <p class="error <?= $displayAnswerError ?> "><?= $answerError ?></p>
         </div>
 
         <div class="buttons__container">
 
             <button class="button" type="submit" name="create__faq">pronto</button>
-            <a class="button" href="#">voltar</a>
+            <a class="button" href="<?= $homePath ?>">voltar</a>
         </div>
     </form>
 

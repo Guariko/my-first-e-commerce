@@ -27,7 +27,7 @@
     --question-size: 1.8rem;
     --answer-size: 1.3rem;
     --faqs-introduction-size: 3rem;
-    --faqs-arrows-size: 2rem;
+    --faqs-arrows-size: 2.5rem;
     --testimonial-h2-size: 2rem;
     --testimonial-user-size: 4rem;
     --see-more-h1-size: 2.5rem;
@@ -42,6 +42,20 @@
     --my-cart-image-size: 7rem;
     --my-cart-amount-width: 3rem;
     --my-cart-total-width: 4.5rem;
+    --confirm-deletation-button-size: 1.5rem;
+    --confirm-deletaion-messaze-size: 2rem;
+    --empty-cart-message-size: 2.2rem;
+    --contact-input-size: 1.3rem;
+    --contact-section-h2-size: 2.5rem;
+    --contact-label-size: 1.4rem;
+    --header-list-head-size: 1.8rem;
+    --header-list-item-size: 1.2rem;
+    --footer-logo-size: 3rem;
+    --copywright-size: 1rem;
+    --header-horizontal-padding: 1rem;
+    --message-not-found-size: 2rem;
+    --user-not-logged-message: 2rem;
+    --message-sent-size: 2rem;
 }
 
 /* FIXME: Setting up the project and variables ends */
@@ -57,14 +71,12 @@
 }
 
 .recommendation {
-    background: var(--main-color);
-}
-
-.recommendation {
     position: relative;
     padding-bottom: 2rem;
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 4px;
+    height: 50rem;
+    background: var(--main-color);
 }
 
 .recommendation__new__container,
@@ -188,13 +200,10 @@
 
 .recommendation__informations {
     margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
     padding: 1rem;
     margin-bottom: 4rem;
 }
+
 
 .recommendation__title {
     font-size: var(--recommendation-title-size);
@@ -203,11 +212,22 @@
 .recommendation__image {
     width: 100%;
     height: 28rem;
+    object-fit: cover;
 }
 
 .recommendation__button__container {
     padding: 1rem;
     bottom: .5rem;
+}
+
+.price__stars__container {
+    position: absolute;
+    bottom: 5.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    justify-content: center;
 }
 
 .button {
@@ -561,6 +581,91 @@
     display: block;
 } 
 
+.product__not__found__container {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.not__found__message {
+    font-size: var(--message-not-found-size);
+    color: rgb(231, 86, 86);
+    text-align: center;
+}
+
+.user__not__logged__container {
+    background: rgba(0, 0, 0, .8);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 0 1rem;
+}
+
+.user__not__logged__container.active {
+    display: flex;
+}
+
+.user__not__logged__container p {
+    font-size: var(--user-not-logged-message);
+    color: var(--main-color);
+    text-align: center;
+}
+
+.user__not__logged__container a:first-of-type {
+    margin-top: 3rem;
+}
+
+.user__not__logged__container a {
+    width: 18rem;
+}
+
+.user__not__logged__container .fa-times {
+    position: absolute;
+    right: 1.5rem;
+    top: 10%;
+    color: var(--main-color);
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+.cannot__add__more__container {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .9);
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.cannot__add__more__container.active {
+    display: flex;
+}
+
+.cannot__add__more__container p {
+    text-align: center;
+    color: var(--main-color);
+    font-weight: 500;
+    font-size: 2rem;
+}
+
 /* FIXME: See more ends */
 
 /* TODO: Cart starts */
@@ -597,7 +702,7 @@
 }
 
 .my__cart {
-    margin-top: 4rem;
+    margin-top: 2rem;
     flex-direction: column;
 }
 
@@ -700,16 +805,357 @@
     width: var(--my-cart-total-width);
 }
 
+.prices__information .confirm__deletation__container {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .8);
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    padding: 0 1rem;
+}
+
+.confirm__deletation,
+.confirm__deletation__informations__container,
+.prices__information .confirm__deletation__container.active {
+    display: flex;
+}
+
+.confirm__deletation__informations__container {
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.confirm__deletation__informations__container h2 {
+    font-size: var(--confirm-deletaion-messaze-size);
+    color: var(--main-color);
+    line-height: 1.5;
+    text-align: center;
+    max-width: 50ch;
+}
+
+.confirm__deletation__informations__container h2 mark {
+    color: rgb(201, 79, 79);
+}
+
+.confirm__deletation {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm__deletation mark {
+    color: dodgerblue;
+    text-transform: capitalize;
+    border: 1px solid dodgerblue;
+}
+
+.confirm__deletation button,
+.confirm__deletation mark {
+    width: 18rem;
+    font-size: var(--confirm-deletation-button-size);
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    margin: 0;
+    background: rgb(245,245,245);
+}
+
+.confirm__deletation button:hover,
+.confirm__deletation mark:hover {
+    border-color: rgba(0, 0, 0, .1);
+    color: var(--main-color);
+}
+
+.confirm__deletation button:hover {
+    background: rgb(202, 134, 134); 
+}
+
+.confirm__deletation mark:hover {
+    background: rgb(51, 150, 248);
+}
+
+.confirm__deletation button {
+    border: 1px solid rgb(224, 41, 41);
+}
+
+.no__product__cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    padding: 1rem;
+}
+
+.no__product__cart h2 {
+    font-size: var(--empty-cart-message-size);
+    text-align: center;
+    color: var(--black);
+}
+
+.no__product__cart a i,
+.no__product__cart h2 i {
+    color: rgb(250, 68, 68);
+    margin-left: .5rem;
+}
+
+.no__product__cart a {
+    max-width: 18rem;
+}
+
+.final__price__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.final__price {
+    font-size: 2rem; 
+    border: 1px solid var(--hero-background-color);
+    color: var(--hero-background-color);
+    padding: 1rem 2rem;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.final__price mark {
+    color: inherit;
+}
+
+.prices__informations__button__container button {
+    width: 4rem;
+}
+
+.save__changes__container button {
+    color: dodgerblue;
+}
+
+.save__changes__container {
+    display: none;
+}
+
+.save__changes__container.active {
+    display: block;
+}
+
 /* FIXME: Cart ends */
+
+/* TODO: Contact starts */
+
+.contact {
+    padding: 1rem;
+    margin-top: 4rem;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: var(--contact-section-h2-size);
+    color: var(--hero-background-color);
+}
+
+.contact__form div,
+.contact__form,
+.contact__container {
+    display: flex;
+}
+
+.contact__container {
+    justify-content: center;
+    margin-top: 8rem;
+}
+
+.contact__form div ,
+.contact__form {
+    flex-direction: column;
+}
+
+.contact__form {
+    gap: 3rem;
+    width: 100%;
+    max-width: 50rem;
+}
+
+.contact__form div {
+    gap: 1rem;
+    width: 100%;
+}
+
+.contact__form label {
+    font-size: var(--contact-label-size);
+    color: var(--black);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.contact__form textarea,
+.contact__form input {
+    border: 1px solid rgba(0,0,0,0.4);
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: var(--contact-input-size);
+    color: var(--black);
+}
+
+.contact__form textarea {
+    height: 10rem;
+    resize: vertical;
+    max-height: 30rem;
+}
+
+.contact__form__button__container {
+    align-items: center;
+}
+
+.contact__form .button {
+    width: 16rem;
+}
+
+.error__message {
+    color: rgb(214, 100, 100);
+    display: none;
+}
+
+.error__message.active {
+    display: block;
+}
+
+.message__sent__container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .9);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 2000;
+    padding: 0 1rem;
+}
+
+.message__sent__container.active {
+    display: flex;
+}
+
+.message__sent {
+    color: var(--hero-background-color);
+    text-align: center;
+    font-size: var(--message-sent-size);
+    font-weight: 500;
+}
+
+.message__sent__container .button {
+    font-weight: 550;
+    border-radius: 1rem;
+}
+
+/* FIXME: Contact ends */
+
+/* TODO: Footer starts */
+
+.footer__contact__list,
+.footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: 10rem;
+    gap: 4rem;
+}
+
+.footer__contact__list {
+    gap: 1rem;
+    padding: 0 var(--header-horizontal-padding);
+}
+
+.footer__contact__item:first-of-type {
+    margin-bottom: 1rem;
+}
+
+.copywright,
+.footer__logo,
+.footer__contact__item h2 {
+    text-transform: capitalize;
+}
+
+.copywright,
+.footer__contact__item mark,
+.footer__contact__item h2 {
+    color: var(--black);
+}
+
+.footer__contact__item h2 {
+    font-size: var(--header-list-head-size);
+    font-weight: 500;
+}
+
+.footer__contact__item mark {
+    font-size: var(--header-list-item-size);
+    font-weight: 450;
+}
+
+.footer__contact__item mark i {
+    margin-right: .4rem;
+    color: var(--hero-background-color);
+}
+
+.footer__logo__container {
+    padding: 0 var(--header-horizontal-padding);
+}
+
+.footer__logo {
+    font-size: var(--footer-logo-size);
+    color: var(--hero-background-color);
+    font-weight: bold;
+}
+
+.footer__decoration {
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, .3);
+}
+
+.copywright__container {
+    align-self: center;
+    margin-top: -2rem;
+}
+
+.copywright {
+    font-size: var(--copywright-size);
+    font-weight: 500;
+}
+
+/* FIXME: Footer ends */
 
 /* TODO: Media queries start */
 
 @media screen and (min-width: 215px) {
 
+    /* TODO: Cart adjustments */
+
     .prices__informations__button__container {
         position: absolute;
         right: .1rem;
     }
+
+    .prices__information {
+        overflow: visible;
+    }
+
+    /* FIXME: Cart adjustments end */
     
 }
 
@@ -722,8 +1168,8 @@
         --paragraph-size: 1.2rem;
         --hero-h1-size: 1.7rem;
         --hero-h1-mark: 2.5rem;
-        --faqs-introduction-size: 4rem;
-        --testimonial-h2-size: 2.5rem;
+        --faqs-introduction-size: 3.5rem;
+        --testimonial-h2-size: 2.8rem;
         --testimonial-user-size: 5rem;
         --see-more-h1-size: 2.7rem;
         --product-content-size: 1.6rem;
@@ -737,6 +1183,12 @@
         --my-cart-image-size: 9rem;
         --my-cart-amount-width: 4rem;
         --my-cart-total-width: 6rem;
+        --empty-cart-message-size: 2.8rem;
+        --contact-input-size: 1.5rem;
+        --contact-section-h2-size: 2.8rem;
+        --contact-label-size: 1.6rem;
+        --header-horizontal-padding: 2rem;
+        --user-not-logged-message: 2.5rem;
     }
 
     /* FIXME: Variables adjsutments end */
@@ -746,6 +1198,10 @@
     .recommendation__image {
         width: 100%;
         height: 30rem;
+    }
+
+    .recommendation {
+        height: 52rem;
     }
     
     /* FIXME: Recommendations adjustments end */
@@ -786,7 +1242,25 @@
         right: .5rem;
     }
 
+    .confirm__deletation button,
+    .confirm__deletation mark {
+        width: 20rem;
+    }
+
+    .prices__informations__button__container button {
+        width: 7rem;
+    }
+
     /* FIXME: Cart adjustments end */
+
+    /* TODO: See more adjustments */
+
+    .cannot__add__more__container p {
+        font-size: 2.4rem;
+    }
+
+    /* FIXME: See more adjustments end */
+
 }
 
 @media screen and (min-width: 350px) {
@@ -812,6 +1286,11 @@
         --my-cart-image-size: 10rem;
         --my-cart-amount-width: 5rem;
         --my-cart-total-width: 7rem;
+        --empty-cart-message-size: 3.5rem;
+        --contact-section-h2-size: 3rem;
+        --contact-label-size: 1.7rem;
+        --message-not-found-size: 3rem;
+        --message-sent-size: 2.5rem;
     }
 
     /* FIXME: Variables adjsutments end */
@@ -820,6 +1299,10 @@
 
     .recommendation__image {
         height: 32rem;
+    }
+
+    .recommendation {
+        height: 55rem;
     }
 
     /* FIXME: Recommendations adjustments end */
@@ -862,6 +1345,10 @@
         padding: 1rem 2rem;
     }
 
+    .user__not__logged__container .fa-times {
+        right: 2rem;
+    }
+
     /* FIXME: See more adjustments end */
 
     /* TODO: Cart adjustments */
@@ -870,7 +1357,23 @@
         padding: 1rem 2rem;
     }
 
+    .prices__information .confirm__deletation__container {
+        padding: 0 2rem;
+    }
+
     /* FIXME: Cart adjustments end */
+
+    /* TODO: Contact adjustments */
+
+    .contact {
+        padding: 1rem 2rem;
+    }
+
+    .message__sent__container {
+        padding: 0 2rem;
+    }
+
+    /* FIXME: Contact adjustments end */
     
 }
 
@@ -882,33 +1385,14 @@
         --my-cart-product-h2-size: 2rem;
         --my-cart-change-quantity-size: 1.5rem;
         --my-cart-h1-size: 3.5rem;
+         --user-not-logged-message: 3rem;
     }
 
     /* FIXME: Setting up the project ends */
 
-    /* TODO: Recommendation starts */
-    
-    .recommendations {
-        grid-template-columns: repeat(auto-fit, minmax(15rem, 20rem));
-    }
-
-    .recommendation__image {
-        height: 28rem;
-    }
-
-    /* FIXME: Recommendation ends */
-
 }
 
 @media screen and (min-width:500px) {
-
-    /* TODO: Recommendation starts */
-    
-    .recommendations {
-        grid-template-columns: repeat(auto-fit, minmax(15rem, 22rem));
-    }
-
-    /* FIXME: Recommendation ends */
 
     /* TODO: Cart adjustments */
 
@@ -921,6 +1405,14 @@
     }
 
     /* FIXME: Cart adjustments end */
+
+    /* TODO: See more adjustments */
+
+    .cannot__add__more__container {
+        padding: 0 2rem;
+    }
+
+    /* FIXME: See more adjustments end */
 }
 
 @media screen and (min-width:600px) {
@@ -935,6 +1427,7 @@
         --faqs-introduction-size: 4.5rem;
         --testimonial-h2-size: 4rem;
         --see-more-h1-size: 4rem;
+        --contact-section-h2-size: 4.5rem;
     }
 
     /* FIXME: Variables adjsutments end */
@@ -949,6 +1442,10 @@
         height: 35rem;
     }
 
+    .recommendation {
+        height: 60rem;
+    }
+
     /* FIXME: Recommendation ends */
 }
 
@@ -961,7 +1458,11 @@
         --paragraph-size: 1.4rem;
         --delete-message-size: 5rem;
         --my-cart-image-size: 11rem;
-         --my-cart-h1-size: 4rem;
+        --my-cart-h1-size: 4rem;
+        --confirm-deletation-button-size: 1.8rem;
+        --confirm-deletaion-messaze-size: 2.6rem;
+        --header-horizontal-padding: 4rem;
+        --message-sent-size: 3rem;
     }
     
     /* FIXME: Variables adjustments end*/
@@ -988,6 +1489,7 @@
 
     .faq {
         padding: 4rem;
+        width: 42rem;
     }
 
     /* FIXME: Faqs adjsutments end */
@@ -1030,6 +1532,10 @@
         height: 38rem;
     }
 
+    .cannot__add__more__container p {
+        font-size: 3rem;
+    }
+
     /* FIXME: See more adjustments end */
 
     /* TODO: Cart adjustments */
@@ -1043,6 +1549,11 @@
         justify-content: center;
         align-items: initial;
         grid-template-columns: repeat(2, 35rem);
+    }
+    
+    .confirm__deletation {
+        flex-direction: row;
+        gap: 5rem;
     }
 
     /* FIXME: Cart adjustments end */
@@ -1062,6 +1573,11 @@
 
     .faqs__section {
         gap: 8rem;
+    }
+
+    .faq {
+        padding: 4rem;
+        width: 46rem;
     }
 
     /* FIXME: Faqs adjsutments end */
@@ -1088,6 +1604,10 @@
         gap: 10rem;
     }
 
+    .faq {
+        width: 55rem;
+    }
+
     /* FIXME: Faqs adjsutments end */
 
     /* TODO: Cart adjustments */
@@ -1097,6 +1617,14 @@
     }
 
     /* FIXME: Cart adjustments end */
+
+    /* TODO: See more adjustments */
+
+    .user__not__logged__container .fa-times {
+        right: 5rem;
+    }
+
+    /* FIXME: See more adjustments end */
 }
 
 @media screen and (min-width:1280px) {
@@ -1106,7 +1634,9 @@
     :root {
         --paragraph-size: 1.5rem;
         --testimonial-h2-size: 5rem;
-           --my-cart-image-size: 12rem;
+        --my-cart-image-size: 12rem;
+        --contact-section-h2-size: 5rem;
+        --header-horizontal-padding: 8%;
     }
     
     /* FIXME: Variables adjustments end*/
@@ -1119,6 +1649,10 @@
 
     .recommendation__image {
         height: 40rem;
+    }
+
+    .recommendation {
+        height: 63rem;
     }
 
     /* FIXME: Recommendation ends */
@@ -1141,7 +1675,11 @@
     /* TODO: Faqs adjustments */
 
     .faqs__section {
-        gap: 22.5rem;
+        gap: 8rem;
+    }
+
+    .faq {
+        width: 75rem;
     }
 
     /* FIXME: Faqs adjsutments end */
@@ -1157,6 +1695,11 @@
         height: 40rem;
     }
 
+    .user__not__logged__container .fa-times {
+        right: 10%;
+        font-size: 6rem;
+    }
+
     /* FIXME: See more adjustments end */
 
     /* TODO: Cart adjustments */
@@ -1170,6 +1713,14 @@
 }
 
 @media screen and (min-width: 1400px) {
+
+    /* TODO: Setting up the project adjustments */
+
+    :root {
+        --header-horizontal-padding: 10%;
+    }
+
+    /* FIXME: Setting up the project adjustments end */
 
     /* TODO: Hero adjustments */
 
@@ -1190,6 +1741,14 @@
 }
 
 @media screen and (min-width: 1500px) {
+
+     /* TODO: Setting up the project adjustments */
+
+    :root {
+        --header-horizontal-padding: 15%;
+    }
+
+    /* FIXME: Setting up the project adjustments end */
 
     /* TODO: Hero adjustments */
 

@@ -1,17 +1,21 @@
 <?php
 
-if (!isset($dataBaseConfigPath) || !isset($classesPath) || !isset($homePath)) {
-
-    die();
+if (!isset($homePath)) {
+    $homePath = "../index.php";
 }
 
+if (!isset($dataBaseConfigPath)) {
+    $dataBaseConfigPath = "dataBaseConfig.php";
+}
+
+if (!isset($classesPath)) {
+    $classesPath = "classes.php";
+}
 
 require_once($dataBaseConfigPath);
 require_once($classesPath);
 
 DataBase::initialize(new DataBaseClass($dataBaseConnection));
-
-
 
 if (isset($_GET["searching"])) {
 
